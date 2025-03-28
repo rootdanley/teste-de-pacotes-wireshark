@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Fake</title>
+</head>
+<body>
+  <h1>Usuários:</h1>
+  <ul id="lista"></ul>
+
+  <script>
+    fetch("http://localhost:8080/api/usuarios")
+      .then(res => res.json())
+      .then(data => {
+        const ul = document.getElementById("lista");
+        data.forEach(usuario => {
+          const li = document.createElement("li");
+          li.innerText = usuario;
+          ul.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
